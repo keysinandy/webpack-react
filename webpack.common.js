@@ -28,8 +28,15 @@ module.exports = {
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader']
       },
       {
-        test: /\.(png|svg|jpg|gif)$/,
-        use: ['file-loader']
+        test: /\.(png|svg|jpg|jpeg|gif)$/,
+        use: {
+          loader: 'url-loader',
+          options: {
+            name: '[name].[ext]',
+            outputPath: 'images/',
+            limit: 8192,
+          },
+        }
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
@@ -39,17 +46,6 @@ module.exports = {
             name: '[name]_[hash].[ext]',
             outputPath: 'font/'
           }
-        }
-      },
-      {
-        test: /\.(jpg|png|gif)$/,
-        use: {
-          loader: 'url-loader',
-          options: {
-            name: '[name].[ext]',
-            outputPath: 'images/',
-            limit: 8192,
-          },
         }
       }
     ]
