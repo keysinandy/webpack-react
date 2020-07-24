@@ -1,7 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
 
@@ -18,14 +17,6 @@ module.exports = {
         test: /\.(js|jsx)$/,
         use: ['babel-loader'],
         exclude: path.resolve(__dirname, 'node_modules/')
-      },
-      {
-        test: /\.(scss|sass)$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader']
-      },
-      {
-        test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader']
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/,
@@ -55,10 +46,6 @@ module.exports = {
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: 'public/index.html'
-    }),
-    new MiniCssExtractPlugin({
-      filename: '[name].[hash].css',
-      chunkFilename: '[id].[hash].css',
     })
   ],
   devtool: 'cheap-module-eval-source-map',

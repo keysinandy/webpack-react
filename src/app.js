@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './app.css';
 const App = () => {
-
+  let count = 0
   return <div>
-    app
+    {count}
   </div>
 }
 
