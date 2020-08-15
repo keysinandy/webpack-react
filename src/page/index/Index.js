@@ -6,7 +6,6 @@ const Index = () => {
   const dispatch = useDispatch()
   const handleAdd = () => {
     dispatch(actionCreator.addClickNum())
-    // console.log('click', s, actionCreator.addClickNum())
   }
   return <>
     <div onClick={handleAdd}>click me</div>
