@@ -1,6 +1,6 @@
 {
   "name": "project-name",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "main": "index.js",
   "repository": "git@github.com:keysinandy/webpack-react.git",
   "author": "szq  <keysinandy@gmail.com>",
@@ -17,6 +17,7 @@
     "@babel/preset-react": "^7.10.1",
     "autoprefixer": "^9.8.0",
     "babel-eslint": "^10.1.0",
+    "babel-jest": "^26.3.0",
     "babel-loader": "^8.1.0",
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^4.2.2",
@@ -42,7 +43,6 @@
     "webpack-merge": "^5.1.2"
   },
   "dependencies": {
-    "babel-jest": "^26.3.0",
     "immer": "^7.0.7",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
