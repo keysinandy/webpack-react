@@ -1,15 +1,12 @@
 import React from 'react';
-import './app.css';<% _%>
-<% if (fast) {%>
+import './app.css';
 import { Provider } from 'react-redux'
 import store from './store/store'
 import { renderRoutes } from 'react-router-config'
 import routes from './routes/index'
 import { HashRouter } from 'react-router-dom'
-<%}%>
 function App () {
-  return (<% _%>
-    <%_ if (fast) {%>
+  return (
     <Provider store={store}>
       <div className="App">
         <HashRouter>
@@ -17,11 +14,6 @@ function App () {
         </HashRouter>
       </div>
     </Provider>
-    <%_} else {%>
-    <div className="App">
-      index
-    </div>
-    <%_ }-%>
   );
 }
 

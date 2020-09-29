@@ -1,9 +1,14 @@
-module.exports = {
+const fs = require('fs')
+const path = require('path')
+const useTypescript = fs.existsSync(path.resolve(__dirname, './tsconfig.json'))
+
+const eslintConfig = {
   "env": {
     "browser": true,
     "commonjs": true,
     "es6": true,
-    "jest": true
+    "jest": true,
+    "node": true
   },
   "parser": "babel-eslint",
   "extends": [
@@ -44,6 +49,7 @@ module.exports = {
       "version": "16.2.0",
     }
   },
+
 
   /**
    * "off" 或 0 - 关闭规则
@@ -380,3 +386,61 @@ module.exports = {
     "no-unused-vars": 0,
   }
 };
+useTypescript && eslintConfig.rules["react/jsx-filename-extension"].push(".ts", "tsx")
+useTypescript && (eslintConfig.overrides = [
+  {
+    "files": [
+      "**/*.ts?(x)"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "ecmaVersion": 2018,
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "jsx": true
+      },
+      "warnOnUnsupportedTypeScriptVersion": true
+    },
+    "plugins": [
+      "@typescript-eslint"
+    ],
+    "rules": {
+      "default-case": "off",
+      "no-dupe-class-members": "off",
+      "no-undef": "off",
+      "@typescript-eslint/consistent-type-assertions": "warn",
+      "no-array-constructor": "off",
+      "@typescript-eslint/no-array-constructor": "warn",
+      "no-use-before-define": "off",
+      "@typescript-eslint/no-use-before-define": [
+        "warn",
+        {
+          "functions": false,
+          "classes": false,
+          "variables": false,
+          "typedefs": false
+        }
+      ],
+      "no-unused-expressions": "off",
+      "@typescript-eslint/no-unused-expressions": [
+        "error",
+        {
+          "allowShortCircuit": true,
+          "allowTernary": true,
+          "allowTaggedTemplates": true
+        }
+      ],
+      "no-unused-vars": "off",
+      "@typescript-eslint/no-unused-vars": [
+        "warn",
+        {
+          "args": "none",
+          "ignoreRestSiblings": true
+        }
+      ],
+      "no-useless-constructor": "off",
+      "@typescript-eslint/no-useless-constructor": "warn"
+    }
+  }
+])
+module.exports = eslintConfig

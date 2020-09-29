@@ -1,11 +1,12 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const path = require('path')
+const fs = require('fs')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+
+const useTypescript = fs.existsSync(path.resolve(__dirname, './tsconfig.json'))
 
 module.exports = {
-
-  entry: path.resolve(__dirname, 'src/index.js'),
-
+  entry: path.resolve(__dirname, `src/index.${useTypescript ? 'tsx' : 'js'}`),
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: '[name].bundle.[hash:16].js'
@@ -14,7 +15,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.(js|jsx|ts|tsx)$/,
         use: ['babel-loader'],
         exclude: path.resolve(__dirname, 'node_modules/')
       },
@@ -69,5 +70,14 @@ module.exports = {
         }
       }
     }
+  },
+  resolve: {
+    extensions: ['.js', '.jsx', '.ts', '.tsx'].filter(ext => {
+      if (!useTypescript) {
+        return !/ts/.test(ext)
+      }
+      return true
+    }
+    )
   }
 };
