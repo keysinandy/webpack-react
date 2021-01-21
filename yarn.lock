@@ -4847,10 +4847,10 @@ ignore@^5.1.4:
   resolved "https://registry.npm.taobao.org/ignore/download/ignore-5.1.8.tgz#f150a8b50a34289b33e22f5889abd4d8016f0e57"
   integrity sha1-8VCotQo0KJsz4i9YiavU2AFvDlc=
 
-immer@^7.0.7:
-  version "7.0.7"
-  resolved "https://registry.npm.taobao.org/immer/download/immer-7.0.7.tgz?cache=0&sync_timestamp=1595826620515&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fimmer%2Fdownload%2Fimmer-7.0.7.tgz#9dfe713d49bf871cc59aedfce59b1992fa37a977"
-  integrity sha1-nf5xPUm/hxzFmu385ZsZkvo3qXc=
+immer@^8.0.1:
+  version "8.0.1"
+  resolved "https://registry.yarnpkg.com/immer/-/immer-8.0.1.tgz#9c73db683e2b3975c424fb0572af5889877ae656"
+  integrity sha512-aqXhGP7//Gui2+UrEtvxZxSquQVXTpZ7KDxfCcKAF3Vysvw0CViVaW9RZ1j1xlIYqaaaipBoqdqeibkc18PNvA==
 
 import-cwd@^2.0.0:
   version "2.1.0"
